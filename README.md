@@ -76,3 +76,5 @@ vercel             # follow prompts, links to your GitHub repo
 ```
 
 Or connect the GitHub repo directly at vercel.com/new — every push to `main` auto-deploys.
+
+<!-- deployed via Vercel, connected to GitHub for auto-deploy -->
