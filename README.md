@@ -79,3 +79,4 @@ Or connect the GitHub repo directly at vercel.com/new — every push to `main` a
 
 <!-- deployed via Vercel, connected to GitHub for auto-deploy -->
 <!-- test alias tracking -->
+<!-- trigger after rename -->
