@@ -1,6 +1,23 @@
+"use client";
+
 import { ArrowUpRightIcon } from "./icons";
 import { eshara } from "@/data/projects";
 import Reveal from "./Reveal";
+import { useCountUp } from "@/hooks/useCountUp";
+import type { RefObject } from "react";
+
+function StatCard({ name, accuracy }: { name: string; accuracy: string }) {
+  const { ref, display } = useCountUp(accuracy);
+  return (
+    <div
+      ref={ref as RefObject<HTMLDivElement>}
+      className="rounded-2xl border border-black/10 bg-background/60 p-4 text-center backdrop-blur transition hover:-translate-y-1 hover:shadow-md dark:border-white/10"
+    >
+      <p className="text-2xl font-semibold text-accent">{display}</p>
+      <p className="mt-1 text-xs text-foreground/60">{name}</p>
+    </div>
+  );
+}
 
 export default function Eshara() {
   return (
@@ -9,7 +26,7 @@ export default function Eshara() {
       className="relative overflow-hidden border-y border-black/5 bg-accent/[0.04] dark:border-white/10"
     >
       <div
-        className="bg-blob animate-float top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 bg-accent"
+        className="bg-blob animate-float animate-hue top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 bg-accent"
         aria-hidden="true"
       />
 
@@ -28,13 +45,7 @@ export default function Eshara() {
         <Reveal delay={100}>
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {eshara.models.map((m) => (
-              <div
-                key={m.name}
-                className="rounded-2xl border border-black/10 bg-background/60 p-4 text-center backdrop-blur transition hover:-translate-y-1 hover:shadow-md dark:border-white/10"
-              >
-                <p className="text-2xl font-semibold text-accent">{m.accuracy}</p>
-                <p className="mt-1 text-xs text-foreground/60">{m.name}</p>
-              </div>
+              <StatCard key={m.name} name={m.name} accuracy={m.accuracy} />
             ))}
           </div>
         </Reveal>

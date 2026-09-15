@@ -1,7 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { MoonIcon, SunIcon } from "./icons";
+
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (callback: () => void) => { ready: Promise<void> };
+};
 
 export default function ThemeToggle() {
   const [dark, setDark] = useState(false);
@@ -16,11 +20,34 @@ export default function ThemeToggle() {
     document.documentElement.classList.toggle("dark", shouldBeDark);
   }, []);
 
-  function toggle() {
-    const next = !dark;
+  function applyTheme(next: boolean) {
     setDark(next);
     document.documentElement.classList.toggle("dark", next);
     localStorage.setItem("theme", next ? "dark" : "light");
+  }
+
+  function toggle(e: MouseEvent<HTMLButtonElement>) {
+    const next = !dark;
+    const doc = document as ViewTransitionDocument;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!doc.startViewTransition || reducedMotion) {
+      applyTheme(next);
+      return;
+    }
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    document.documentElement.style.setProperty(
+      "--theme-toggle-x",
+      `${rect.left + rect.width / 2}px`
+    );
+    document.documentElement.style.setProperty(
+      "--theme-toggle-y",
+      `${rect.top + rect.height / 2}px`
+    );
+
+    doc.startViewTransition(() => applyTheme(next));
   }
 
   if (!mounted) return <div className="h-9 w-9" />;

@@ -63,3 +63,96 @@ body {
   background-clip: text;
   color: transparent;
 }
+
+/* Slow hue rotation for hero/eshara background blobs */
+@keyframes hue-shift {
+  0%, 100% { filter: blur(80px) hue-rotate(0deg); }
+  50% { filter: blur(80px) hue-rotate(45deg); }
+}
+
+.animate-hue {
+  animation: hue-shift 10s ease-in-out infinite;
+}
+
+/* Cursor-following spotlight, driven by --spot-x/--spot-y custom properties */
+.spotlight-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    color-mix(in srgb, var(--accent) 15%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.spotlight-container:hover::before {
+  opacity: 1;
+}
+
+/* Tilt card glow that follows --glow-x/--glow-y */
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    250px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    color-mix(in srgb, var(--accent) 12%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.tilt-card:hover::after {
+  opacity: 1;
+}
+
+/* Animated underline for active nav link */
+.nav-underline {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+  transition: left 0.3s ease, width 0.3s ease, opacity 0.3s ease;
+}
+
+/* View Transitions API: circular reveal wipe for theme toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  clip-path: circle(0% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+  animation: theme-reveal 0.5s ease-out forwards;
+}
+
+@keyframes theme-reveal {
+  to {
+    clip-path: circle(150% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
