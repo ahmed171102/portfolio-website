@@ -35,7 +35,7 @@ export const projects: Project[] = [
       "ASP.NET Core Web API managing Games and Food resources with a clean interface → service → controller architecture and interactive Swagger UI.",
     highlight: "Layered DI architecture, full OpenAPI docs",
     tech: ["C#", "ASP.NET Core", "Swagger"],
-    github: "https://github.com/ahmed171102/Assignment-2-Web-Engineering",
+    github: "https://github.com/ahmed171102/aspnet-games-food-api",
   },
   {
     slug: "flyrank-task-api",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
       "In-memory REST CRUD API for managing tasks, with input validation, proper HTTP status codes, and an automated Node.js test suite.",
     highlight: "Full test coverage with node:test, Swagger docs at /docs",
     tech: ["Node.js", "Express", "Swagger"],
-    github: "https://github.com/ahmed171102/Flyrank-Tasks-",
+    github: "https://github.com/ahmed171102/flyrank-task-api",
   },
   {
     slug: "mkdocs-rag-api",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
       "Retrieval-Augmented Generation service that answers natural-language questions about a documentation corpus using ChromaDB for retrieval and Google Gemini for generation.",
     highlight: "Chunk → embed → retrieve → answer pipeline over FastAPI",
     tech: ["Python", "FastAPI", "ChromaDB", "Gemini"],
-    github: "https://github.com/ahmed171102/RAG-Assignment",
+    github: "https://github.com/ahmed171102/mkdocs-rag-api",
   },
   {
     slug: "disaster-relief-management",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
       "WinForms + SQL Server desktop app for coordinating disaster-relief operations: shelters, resources, volunteers, disaster events, and relief requests.",
     highlight: "Found & fixed a SQL injection vulnerability during cleanup",
     tech: ["C#", "WinForms", "SQL Server", "ADO.NET"],
-    github: "https://github.com/ahmed171102/DRMS",
+    github: "https://github.com/ahmed171102/disaster-relief-management",
   },
   {
     slug: "tcp-file-transfer",
@@ -75,7 +75,7 @@ export const projects: Project[] = [
       "Peer-to-peer file transfer tool built on raw TCP sockets — no cloud, no third-party service, just two machines and a direct connection.",
     highlight: "Real-time transfer progress and network interface selection",
     tech: ["C#", "WinForms", "Sockets"],
-    github: "https://github.com/ahmed171102/FTP",
+    github: "https://github.com/ahmed171102/tcp-file-transfer",
   },
   {
     slug: "course-management-cli",
@@ -105,7 +105,7 @@ export const projects: Project[] = [
       "Compares a baseline VGG16 transfer-learning classifier against the same backbone augmented with a custom self-attention block on CIFAR-10.",
     highlight: "Self-attention layer implemented from scratch",
     tech: ["Python", "TensorFlow", "Keras"],
-    github: "https://github.com/ahmed171102/CNN-Attentation-Task",
+    github: "https://github.com/ahmed171102/cifar10-vgg16-attention",
   },
   {
     slug: "seq2seq-spell-checker",
@@ -125,7 +125,7 @@ export const projects: Project[] = [
       "PIC16F877A firmware driving a traffic light sequence on LEDs and an LCD, with a hardware external interrupt for an emergency stop.",
     highlight: "Interrupt-driven design demoed on real hardware",
     tech: ["C", "mikroC", "PIC16F877A"],
-    github: "https://github.com/ahmed171102/Traffic-Light-With-Interrupts",
+    github: "https://github.com/ahmed171102/pic-traffic-light",
   },
   {
     slug: "xv6-riscv",

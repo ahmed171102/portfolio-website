@@ -79,10 +79,13 @@ export default function Hero() {
               <ArrowUpRightIcon className="h-4 w-4" />
             </MagneticButton>
             <MagneticButton
-              href="/resume.pdf"
+              href="https://linkedin.com/in/ahmed171102"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-2.5 text-sm font-medium hover:border-black/25 dark:border-white/15 dark:hover:border-white/30"
             >
-              Download résumé
+              Connect on LinkedIn
+              <LinkedInIcon className="h-4 w-4" />
             </MagneticButton>
           </div>
         </Reveal>
