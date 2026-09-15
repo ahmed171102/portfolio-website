@@ -166,3 +166,11 @@ export const categories: ProjectCategory[] = [
   "Machine Learning",
   "Embedded & Systems",
 ];
+
+export const categoryAccent: Record<ProjectCategory, string> = {
+  "Full-Stack": "from-blue-500 to-cyan-400",
+  Backend: "from-emerald-500 to-teal-400",
+  Desktop: "from-orange-500 to-amber-400",
+  "Machine Learning": "from-purple-500 to-pink-400",
+  "Embedded & Systems": "from-slate-500 to-slate-400",
+};

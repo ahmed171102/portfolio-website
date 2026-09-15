@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
@@ -9,8 +12,25 @@ const links = [
 ];
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-background/80 backdrop-blur dark:border-white/10">
+    <header
+      className={`sticky top-0 z-50 border-b bg-background/80 backdrop-blur transition-shadow ${
+        scrolled
+          ? "border-black/5 shadow-sm dark:border-white/10"
+          : "border-transparent"
+      }`}
+    >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link href="#top" className="text-sm font-semibold tracking-tight">
           Ahmed Adel Goda
