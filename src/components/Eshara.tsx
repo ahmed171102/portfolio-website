@@ -53,7 +53,7 @@ export default function Eshara() {
         <div className="mt-10 grid gap-8 lg:grid-cols-5">
           <Reveal delay={160} className="lg:col-span-3">
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-foreground/50">
-              Four models, four vocabularies
+              Model pipelines and reported results
             </h3>
             <div className="overflow-hidden rounded-xl border border-black/10 dark:border-white/10">
               <table className="w-full text-left text-sm">
@@ -61,7 +61,7 @@ export default function Eshara() {
                   <tr>
                     <th className="px-4 py-3 font-medium">Model</th>
                     <th className="px-4 py-3 font-medium">Architecture</th>
-                    <th className="px-4 py-3 font-medium">Accuracy</th>
+                    <th className="px-4 py-3 font-medium">Reported result</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -78,6 +78,9 @@ export default function Eshara() {
                 </tbody>
               </table>
             </div>
+            <p className="mt-2 text-xs text-foreground/50">
+              Within-corpus results; not signer-independent. The I3D row is a pretrained WLASL-100 baseline, not a model trained by the team.
+            </p>
           </Reveal>
 
           <Reveal delay={220} className="lg:col-span-2">
@@ -102,7 +105,7 @@ export default function Eshara() {
             rel="noreferrer"
             className="mt-10 inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-2.5 text-sm font-medium transition hover:scale-105 hover:border-black/25 dark:border-white/15 dark:hover:border-white/30"
           >
-            View repository & thesis
+            View repository
             <ArrowUpRightIcon className="h-4 w-4" />
           </a>
         </Reveal>

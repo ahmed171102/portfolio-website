@@ -1,6 +1,6 @@
 # Portfolio — Ahmed Adel Goda
 
-Personal portfolio site built with **Next.js 16 (App Router) + TypeScript + Tailwind CSS v4**. Showcases 13 projects plus a featured case study for the graduation project, **Eshara**.
+Personal portfolio site built with **Next.js 16 (App Router) + TypeScript + Tailwind CSS v4**. Showcases 15 projects plus a featured case study for the graduation project, **Eshara**.
 
 ## Stack
 

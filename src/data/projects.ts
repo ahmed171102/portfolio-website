@@ -1,6 +1,7 @@
 export type ProjectCategory =
   | "Full-Stack"
   | "Backend"
+  | "Cybersecurity"
   | "Desktop"
   | "Machine Learning"
   | "Embedded & Systems";
@@ -56,6 +57,26 @@ export const projects: Project[] = [
     highlight: "Chunk → embed → retrieve → answer pipeline over FastAPI",
     tech: ["Python", "FastAPI", "ChromaDB", "Gemini"],
     github: "https://github.com/ahmed171102/mkdocs-rag-api",
+  },
+  {
+    slug: "cybersecurity-labs",
+    title: "Cybersecurity Labs",
+    category: "Cybersecurity",
+    description:
+      "52 hands-on labs covering web application security, API access control, JWT authentication, secure CI, threat modeling, network monitoring, and incident response.",
+    highlight: "Five documented CV projects: secure notes, IDOR fix, JWT API, secret-scan gate, STRIDE",
+    tech: ["Python", "Flask", "JWT", "Linux", "Nmap", "Wireshark"],
+    github: "https://github.com/ahmed171102/Cybersecurity-projects",
+  },
+  {
+    slug: "soc-triage-workbench",
+    title: "SOC Triage Workbench",
+    category: "Cybersecurity",
+    description:
+      "Defensive Python lab that normalizes Linux auth, Windows Security, and firewall logs into one event model, runs 11 ATT&CK-mapped detections, and correlates alerts into a prioritized incident queue.",
+    highlight: "66 synthetic events → 13 alerts → 6 incidents, with an evidence-backed HTML report",
+    tech: ["Python", "MITRE ATT&CK", "Log Analysis", "Incident Response"],
+    github: "https://github.com/ahmed171102/soc-triage-workbench",
   },
   {
     slug: "disaster-relief-management",
@@ -141,27 +162,28 @@ export const projects: Project[] = [
 
 export const eshara = {
   title: "Eshara — Bilingual Sign Language Recognition System",
-  subtitle: "B.Sc. Graduation Project · AASTMT, Computer Engineering · July 2026",
+  subtitle: "B.Sc. Graduation Project · Four-person team · AASTMT, Computer Engineering · July 2026",
   description:
-    "A real-time, bilingual (American Sign Language + Arabic Sign Language) web platform that recognizes letters and words from a standard webcam and turns them into text and chat messages. Built as a three-tier system — React frontend, Node.js/Express application layer, FastAPI inference layer — powering four independently-trained deep learning models.",
+    "A webcam-based, bilingual (American Sign Language + Arabic Sign Language) web platform that recognizes letters and words and turns them into text and chat messages. Built as a three-tier system — React frontend, Node.js/Express application layer, FastAPI inference layer — powering four model pipelines: three trained models and a pretrained WLASL-100 Inception I3D baseline.",
   github: "https://github.com/ahmed171102/Eshara",
   models: [
-    { name: "ASL Letters", arch: "MLP on hand landmarks", accuracy: "99.06%" },
-    { name: "ArSL Letters", arch: "MLP on hand landmarks", accuracy: "99.63%" },
-    { name: "ASL Words", arch: "Inception I3D (100 WLASL glosses)", accuracy: "65.89% Top-1" },
-    { name: "ArSL Words", arch: "Stacked BiLSTM (100 KArSL classes)", accuracy: "99.62%" },
+    { name: "ASL Letters", arch: "MLP on hand landmarks", accuracy: "99.06% Top-1" },
+    { name: "ArSL Letters", arch: "MLP on hand landmarks", accuracy: "99.63% Top-1" },
+    { name: "ASL Words (baseline)", arch: "Pretrained WLASL-100 I3D", accuracy: "65.89% Top-1" },
+    { name: "ArSL Words", arch: "Stacked BiLSTM (100 KArSL classes)", accuracy: "99.62% Top-1" },
   ],
   features: [
-    "Real-time recognition across 4 modes: ASL/ArSL × Letters/Words",
+    "Interactive recognition across 4 modes: ASL/ArSL × Letters/Words",
     "JWT-authenticated live chat where predictions become messages",
-    "Education Module: sign viewer, sentence builder, guided practice with feedback",
-    "Privacy-preserving inference — only compact landmark vectors leave the browser, not raw video",
+    "Education Module: sign viewer, sentence builder, guided practice with label-matching feedback",
+    "51 ms median letter-mode latency in a local Chrome test",
   ],
 };
 
 export const categories: ProjectCategory[] = [
   "Full-Stack",
   "Backend",
+  "Cybersecurity",
   "Desktop",
   "Machine Learning",
   "Embedded & Systems",
@@ -170,6 +192,7 @@ export const categories: ProjectCategory[] = [
 export const categoryAccent: Record<ProjectCategory, string> = {
   "Full-Stack": "from-blue-500 to-cyan-400",
   Backend: "from-emerald-500 to-teal-400",
+  Cybersecurity: "from-red-500 to-orange-400",
   Desktop: "from-orange-500 to-amber-400",
   "Machine Learning": "from-purple-500 to-pink-400",
   "Embedded & Systems": "from-slate-500 to-slate-400",
